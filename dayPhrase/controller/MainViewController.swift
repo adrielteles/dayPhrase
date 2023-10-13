@@ -7,12 +7,8 @@
 
 import UIKit
 
-class MainViewController: UIViewController, MainViewDelegate{
+class MainViewController: UIViewController{
     
-    
-    func phraseButtonPressed() {
-        screen?.phraseLabel.text = randomPhrase.getRandomPhrase()
-    }
     
     var screen: MainView?
     let randomPhrase: PhraseBrain = PhraseBrain()
@@ -25,7 +21,13 @@ class MainViewController: UIViewController, MainViewDelegate{
     override func viewDidLoad() {
         super.viewDidLoad()
         screen?.phraseLabel.text = randomPhrase.getRandomPhrase()
-        screen?.delete(delegate: self)
+        screen?.delegate(delegate: self)
     }
 
+}
+
+extension MainViewController: MainViewDelegate {
+    func phraseButtonPressed() {
+        screen?.phraseLabel.text = randomPhrase.getRandomPhrase()
+    }
 }

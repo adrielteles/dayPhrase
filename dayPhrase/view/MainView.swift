@@ -15,7 +15,7 @@ class MainView: UIView {
     
     private weak var delegate: MainViewDelegate?
     
-    public func delete(delegate: MainViewDelegate?) {
+    public func delegate(delegate: MainViewDelegate?) {
         self.delegate = delegate
     }
     
